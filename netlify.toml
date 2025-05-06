@@ -1,0 +1,16 @@
+# netlify.toml - Configuration for Netlify deployment
+
+[build]
+  publish = "./"
+  
+[[headers]]
+  for = "/wasm/*"
+  [headers.values]
+    Content-Type = "application/wasm"
+    Content-Disposition = "attachment; filename=fluid_sim.wasm"
+
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Cross-Origin-Embedder-Policy = "require-corp"
+    Cross-Origin-Opener-Policy = "same-origin"
